@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79890ECA1B6E069A004663B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890EC91B6E069A004663B5 /* main.m */; };
+		79890ECD1B6E069A004663B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ECC1B6E069A004663B5 /* AppDelegate.m */; };
+		79890ED01B6E069A004663B5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ECF1B6E069A004663B5 /* FirstViewController.m */; };
+		79890ED31B6E069A004663B5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ED21B6E069A004663B5 /* SecondViewController.m */; };
+		79890ED61B6E069A004663B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79890ED41B6E069A004663B5 /* Main.storyboard */; };
+		79890ED81B6E069A004663B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79890ED71B6E069A004663B5 /* Assets.xcassets */; };
+		79890EDB1B6E069A004663B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79890ED91B6E069A004663B5 /* LaunchScreen.storyboard */; };
+		79890EE61B6E069A004663B5 /* SmartNotesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890EE51B6E069A004663B5 /* SmartNotesTests.m */; };
+		79890EF11B6E069A004663B5 /* SmartNotesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890EF01B6E069A004663B5 /* SmartNotesUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79890EE21B6E069A004663B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79890EBD1B6E069A004663B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79890EC41B6E069A004663B5;
+			remoteInfo = SmartNotes;
+		};
+		79890EED1B6E069A004663B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79890EBD1B6E069A004663B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79890EC41B6E069A004663B5;
+			remoteInfo = SmartNotes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		79890EC51B6E069A004663B5 /* SmartNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79890EC91B6E069A004663B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79890ECB1B6E069A004663B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79890ECC1B6E069A004663B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79890ECE1B6E069A004663B5 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		79890ECF1B6E069A004663B5 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		79890ED11B6E069A004663B5 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		79890ED21B6E069A004663B5 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		79890ED51B6E069A004663B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79890ED71B6E069A004663B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79890EDA1B6E069A004663B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79890EDC1B6E069A004663B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79890EE11B6E069A004663B5 /* SmartNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79890EE51B6E069A004663B5 /* SmartNotesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartNotesTests.m; sourceTree = "<group>"; };
+		79890EE71B6E069A004663B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79890EEC1B6E069A004663B5 /* SmartNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79890EF01B6E069A004663B5 /* SmartNotesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartNotesUITests.m; sourceTree = "<group>"; };
+		79890EF21B6E069A004663B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79890EC21B6E069A004663B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79890EDE1B6E069A004663B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79890EE91B6E069A004663B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79890EBC1B6E069A004663B5 = {
+			isa = PBXGroup;
+			children = (
+				79890EC71B6E069A004663B5 /* SmartNotes */,
+				79890EE41B6E069A004663B5 /* SmartNotesTests */,
+				79890EEF1B6E069A004663B5 /* SmartNotesUITests */,
+				79890EC61B6E069A004663B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		79890EC61B6E069A004663B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79890EC51B6E069A004663B5 /* SmartNotes.app */,
+				79890EE11B6E069A004663B5 /* SmartNotesTests.xctest */,
+				79890EEC1B6E069A004663B5 /* SmartNotesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79890EC71B6E069A004663B5 /* SmartNotes */ = {
+			isa = PBXGroup;
+			children = (
+				79890ECB1B6E069A004663B5 /* AppDelegate.h */,
+				79890ECC1B6E069A004663B5 /* AppDelegate.m */,
+				79890ECE1B6E069A004663B5 /* FirstViewController.h */,
+				79890ECF1B6E069A004663B5 /* FirstViewController.m */,
+				79890ED11B6E069A004663B5 /* SecondViewController.h */,
+				79890ED21B6E069A004663B5 /* SecondViewController.m */,
+				79890ED41B6E069A004663B5 /* Main.storyboard */,
+				79890ED71B6E069A004663B5 /* Assets.xcassets */,
+				79890ED91B6E069A004663B5 /* LaunchScreen.storyboard */,
+				79890EDC1B6E069A004663B5 /* Info.plist */,
+				79890EC81B6E069A004663B5 /* Supporting Files */,
+			);
+			path = SmartNotes;
+			sourceTree = "<group>";
+		};
+		79890EC81B6E069A004663B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79890EC91B6E069A004663B5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79890EE41B6E069A004663B5 /* SmartNotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				79890EE51B6E069A004663B5 /* SmartNotesTests.m */,
+				79890EE71B6E069A004663B5 /* Info.plist */,
+			);
+			path = SmartNotesTests;
+			sourceTree = "<group>";
+		};
+		79890EEF1B6E069A004663B5 /* SmartNotesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				79890EF01B6E069A004663B5 /* SmartNotesUITests.m */,
+				79890EF21B6E069A004663B5 /* Info.plist */,
+			);
+			path = SmartNotesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79890EC41B6E069A004663B5 /* SmartNotes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79890EF51B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotes" */;
+			buildPhases = (
+				79890EC11B6E069A004663B5 /* Sources */,
+				79890EC21B6E069A004663B5 /* Frameworks */,
+				79890EC31B6E069A004663B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartNotes;
+			productName = SmartNotes;
+			productReference = 79890EC51B6E069A004663B5 /* SmartNotes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79890EE01B6E069A004663B5 /* SmartNotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79890EF81B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotesTests" */;
+			buildPhases = (
+				79890EDD1B6E069A004663B5 /* Sources */,
+				79890EDE1B6E069A004663B5 /* Frameworks */,
+				79890EDF1B6E069A004663B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79890EE31B6E069A004663B5 /* PBXTargetDependency */,
+			);
+			name = SmartNotesTests;
+			productName = SmartNotesTests;
+			productReference = 79890EE11B6E069A004663B5 /* SmartNotesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		79890EEB1B6E069A004663B5 /* SmartNotesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79890EFB1B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotesUITests" */;
+			buildPhases = (
+				79890EE81B6E069A004663B5 /* Sources */,
+				79890EE91B6E069A004663B5 /* Frameworks */,
+				79890EEA1B6E069A004663B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79890EEE1B6E069A004663B5 /* PBXTargetDependency */,
+			);
+			name = SmartNotesUITests;
+			productName = SmartNotesUITests;
+			productReference = 79890EEC1B6E069A004663B5 /* SmartNotesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79890EBD1B6E069A004663B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = ConradKoh;
+				TargetAttributes = {
+					79890EC41B6E069A004663B5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					79890EE01B6E069A004663B5 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 79890EC41B6E069A004663B5;
+					};
+					79890EEB1B6E069A004663B5 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 79890EC41B6E069A004663B5;
+					};
+				};
+			};
+			buildConfigurationList = 79890EC01B6E069A004663B5 /* Build configuration list for PBXProject "SmartNotes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79890EBC1B6E069A004663B5;
+			productRefGroup = 79890EC61B6E069A004663B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79890EC41B6E069A004663B5 /* SmartNotes */,
+				79890EE01B6E069A004663B5 /* SmartNotesTests */,
+				79890EEB1B6E069A004663B5 /* SmartNotesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79890EC31B6E069A004663B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79890EDB1B6E069A004663B5 /* LaunchScreen.storyboard in Resources */,
+				79890ED81B6E069A004663B5 /* Assets.xcassets in Resources */,
+				79890ED61B6E069A004663B5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79890EDF1B6E069A004663B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79890EEA1B6E069A004663B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79890EC11B6E069A004663B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79890ED31B6E069A004663B5 /* SecondViewController.m in Sources */,
+				79890ECD1B6E069A004663B5 /* AppDelegate.m in Sources */,
+				79890ED01B6E069A004663B5 /* FirstViewController.m in Sources */,
+				79890ECA1B6E069A004663B5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79890EDD1B6E069A004663B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79890EE61B6E069A004663B5 /* SmartNotesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79890EE81B6E069A004663B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79890EF11B6E069A004663B5 /* SmartNotesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79890EE31B6E069A004663B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79890EC41B6E069A004663B5 /* SmartNotes */;
+			targetProxy = 79890EE21B6E069A004663B5 /* PBXContainerItemProxy */;
+		};
+		79890EEE1B6E069A004663B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79890EC41B6E069A004663B5 /* SmartNotes */;
+			targetProxy = 79890EED1B6E069A004663B5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79890ED41B6E069A004663B5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79890ED51B6E069A004663B5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		79890ED91B6E069A004663B5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79890EDA1B6E069A004663B5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79890EF31B6E069A004663B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79890EF41B6E069A004663B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79890EF61B6E069A004663B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SmartNotes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		79890EF71B6E069A004663B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SmartNotes/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		79890EF91B6E069A004663B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartNotesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartNotes.app/SmartNotes";
+			};
+			name = Debug;
+		};
+		79890EFA1B6E069A004663B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartNotesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartNotes.app/SmartNotes";
+			};
+			name = Release;
+		};
+		79890EFC1B6E069A004663B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SmartNotesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SmartNotes;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		79890EFD1B6E069A004663B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SmartNotesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SmartNotes;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79890EC01B6E069A004663B5 /* Build configuration list for PBXProject "SmartNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79890EF31B6E069A004663B5 /* Debug */,
+				79890EF41B6E069A004663B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79890EF51B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79890EF61B6E069A004663B5 /* Debug */,
+				79890EF71B6E069A004663B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		79890EF81B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79890EF91B6E069A004663B5 /* Debug */,
+				79890EFA1B6E069A004663B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		79890EFB1B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79890EFC1B6E069A004663B5 /* Debug */,
+				79890EFD1B6E069A004663B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79890EBD1B6E069A004663B5 /* Project object */;
+}
