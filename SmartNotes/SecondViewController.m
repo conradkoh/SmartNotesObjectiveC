@@ -13,6 +13,7 @@
 @end
 
 @implementation SecondViewController
+@synthesize TextView_Rules;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

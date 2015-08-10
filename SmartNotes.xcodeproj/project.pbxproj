@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7902769F1B7882A3006A2204 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7902769E1B7882A3006A2204 /* EditViewController.m */; };
+		790276A11B789922006A2204 /* allNotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790276A01B789922006A2204 /* allNotes.plist */; };
+		7956020C1B761E9B001B5343 /* SmartNotesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956020B1B761E9B001B5343 /* SmartNotesModel.m */; };
+		7956020F1B762A9A001B5343 /* SmartNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956020E1B762A9A001B5343 /* SmartNote.m */; };
 		79890ECA1B6E069A004663B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890EC91B6E069A004663B5 /* main.m */; };
 		79890ECD1B6E069A004663B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ECC1B6E069A004663B5 /* AppDelegate.m */; };
 		79890ED01B6E069A004663B5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ECF1B6E069A004663B5 /* FirstViewController.m */; };
@@ -36,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7902769D1B7882A3006A2204 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditViewController.h; path = SmartNotes/EditViewController.h; sourceTree = "<group>"; };
+		7902769E1B7882A3006A2204 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditViewController.m; path = SmartNotes/EditViewController.m; sourceTree = "<group>"; };
+		790276A01B789922006A2204 /* allNotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allNotes.plist; sourceTree = "<group>"; };
+		7956020A1B761E9B001B5343 /* SmartNotesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartNotesModel.h; path = SmartNotes/SmartNotesModel.h; sourceTree = "<group>"; };
+		7956020B1B761E9B001B5343 /* SmartNotesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartNotesModel.m; path = SmartNotes/SmartNotesModel.m; sourceTree = "<group>"; };
+		7956020D1B762A9A001B5343 /* SmartNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartNote.h; sourceTree = "<group>"; };
+		7956020E1B762A9A001B5343 /* SmartNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartNote.m; sourceTree = "<group>"; };
 		79890EC51B6E069A004663B5 /* SmartNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79890EC91B6E069A004663B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		79890ECB1B6E069A004663B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +95,12 @@
 		79890EBC1B6E069A004663B5 = {
 			isa = PBXGroup;
 			children = (
+				7956020A1B761E9B001B5343 /* SmartNotesModel.h */,
+				7956020B1B761E9B001B5343 /* SmartNotesModel.m */,
+				7956020D1B762A9A001B5343 /* SmartNote.h */,
+				7956020E1B762A9A001B5343 /* SmartNote.m */,
+				7902769D1B7882A3006A2204 /* EditViewController.h */,
+				7902769E1B7882A3006A2204 /* EditViewController.m */,
 				79890EC71B6E069A004663B5 /* SmartNotes */,
 				79890EE41B6E069A004663B5 /* SmartNotesTests */,
 				79890EEF1B6E069A004663B5 /* SmartNotesUITests */,
@@ -123,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				79890EC91B6E069A004663B5 /* main.m */,
+				790276A01B789922006A2204 /* allNotes.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,6 +230,7 @@
 				TargetAttributes = {
 					79890EC41B6E069A004663B5 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 4K47T9VGPD;
 					};
 					79890EE01B6E069A004663B5 = {
 						CreatedOnToolsVersion = 7.0;
@@ -250,6 +269,7 @@
 			files = (
 				79890EDB1B6E069A004663B5 /* LaunchScreen.storyboard in Resources */,
 				79890ED81B6E069A004663B5 /* Assets.xcassets in Resources */,
+				790276A11B789922006A2204 /* allNotes.plist in Resources */,
 				79890ED61B6E069A004663B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,9 +296,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				79890ED31B6E069A004663B5 /* SecondViewController.m in Sources */,
+				7956020F1B762A9A001B5343 /* SmartNote.m in Sources */,
 				79890ECD1B6E069A004663B5 /* AppDelegate.m in Sources */,
+				7902769F1B7882A3006A2204 /* EditViewController.m in Sources */,
 				79890ED01B6E069A004663B5 /* FirstViewController.m in Sources */,
 				79890ECA1B6E069A004663B5 /* main.m in Sources */,
+				7956020C1B761E9B001B5343 /* SmartNotesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,10 +442,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SmartNotes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -430,10 +457,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SmartNotes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ConradKoh.SmartNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -504,6 +535,7 @@
 				79890EF71B6E069A004663B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79890EF81B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +544,7 @@
 				79890EFA1B6E069A004663B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79890EFB1B6E069A004663B5 /* Build configuration list for PBXNativeTarget "SmartNotesUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +553,7 @@
 				79890EFD1B6E069A004663B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

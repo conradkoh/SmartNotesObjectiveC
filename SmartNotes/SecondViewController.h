@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SmartNotesModel.h"
 @interface SecondViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *TextView_Rules;
 
 
 @end
