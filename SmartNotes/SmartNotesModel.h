@@ -12,6 +12,7 @@
 @interface SmartNotesModel : NSObject
 
 - (NSArray*) GetMatchingNotes: (NSString*) query;
+- (NSArray*) GetMatchingNotesSorted: (NSString*) query;
 - (SmartNote*) GetEditingNote;
 - (void) SetEditingNote: (NSUInteger) index;
 - (void) SaveEditingNote: (NSString*) noteData;
@@ -26,5 +27,6 @@
 - (NSArray*) GetSearchView;
 - (NSString*) SearchNoteTitleAtIndex: (NSUInteger) index;
 - (NSString*) SearchNoteDetailAtIndex: (NSUInteger) index;
+- (void) ResetViews;
 
 @end

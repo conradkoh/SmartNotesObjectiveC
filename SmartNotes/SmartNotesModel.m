@@ -19,16 +19,7 @@ static NSString* notesFilePath;
 - (nonnull instancetype)init{
     
     if(singleton == nil){
-        NSError* error;
-        NSArray* basePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString* documentsDirectory = [basePaths objectAtIndex:0];
-        notesFilePath = [documentsDirectory stringByAppendingPathComponent:@"allNotes.plist"];
-        
-        NSFileManager* fileManager = [NSFileManager defaultManager];
-        if(![fileManager fileExistsAtPath:notesFilePath]){
-            NSString* bundle = [[NSBundle mainBundle] pathForResource:@"allNotes" ofType:@"plist"];
-            [fileManager copyItemAtPath:bundle toPath:notesFilePath error:&error];
-        }
+        [self CheckFiles];
         singleton = [super init];
         [self LoadNotes];
         _searchNoteView = allNotes;
@@ -36,6 +27,18 @@ static NSString* notesFilePath;
     return singleton;
 }
 
+- (void) CheckFiles{
+    NSError* error;
+    NSArray* basePaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentsDirectory = [basePaths objectAtIndex:0];
+    notesFilePath = [documentsDirectory stringByAppendingPathComponent:@"allNotes.plist"];
+    
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if(![fileManager fileExistsAtPath:notesFilePath]){
+        NSString* bundle = [[NSBundle mainBundle] pathForResource:@"allNotes" ofType:@"plist"];
+        [fileManager copyItemAtPath:bundle toPath:notesFilePath error:&error];
+    }
+}
 - (void) LoadNotes{
     NSMutableArray* noteStrings = [[NSMutableArray alloc]init];
     noteStrings = [NSMutableArray arrayWithContentsOfFile:notesFilePath];
@@ -52,6 +55,16 @@ static NSString* notesFilePath;
 
 //RETURN VAL IS ARRAY OF SmartNotes
 - (NSArray *)GetMatchingNotes:(NSString *)query{
+    static NSString* queryHistory = @"";
+    NSMutableArray* searchScope;
+    if([query containsString:queryHistory]){
+        searchScope = _searchNoteView;
+    }
+    else{
+        searchScope = allNotes;
+    }
+    queryHistory = query;
+    
     double matchThreshold = 100;
     query = [query stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
@@ -64,7 +77,7 @@ static NSString* notesFilePath;
         NSMutableArray* matchingNotes = [[NSMutableArray alloc]init];
         
         NSArray* queryTokens = [query componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        for(SmartNote* note in allNotes){
+        for(SmartNote* note in searchScope){
             NSString* lowerCaseBlock = [[note GetNoteData] lowercaseString];
             double matchesFound = 0;
             for(NSString* queryToken in queryTokens){
@@ -85,6 +98,47 @@ static NSString* notesFilePath;
     return _searchNoteView;
 }
 
+- (NSArray *)GetMatchingNotesSorted:(NSString *)query{
+    static NSString* previousQuery = @"";
+    NSMutableArray* searchScope = allNotes;
+    
+    if([query isEqualToString:@""]) {
+        _searchNoteView = allNotes;
+    }
+    else{
+        if([query containsString:previousQuery]){
+            searchScope = _searchNoteView;
+        }
+        else{
+            searchScope = allNotes;
+        }
+        
+        NSMutableArray* transientNotes = [[NSMutableArray alloc]init];
+        NSMutableArray* persistentNotes = [[NSMutableArray alloc]init];
+        
+        query = [query lowercaseString];
+        for(SmartNote* note in searchScope){
+            if([note MatchesQuery:query]){
+                NOTETYPE noteType = [note GetNoteType];
+                if(noteType == TRANSIENT){
+                    [transientNotes addObject:note];
+                }
+                else if(noteType == PERSISTENT) {
+                    [persistentNotes addObject:note];
+                }
+            }
+            
+        }
+        
+        NSMutableArray* sortedNotes = [[NSMutableArray alloc] initWithArray:transientNotes];
+        [sortedNotes addObjectsFromArray:persistentNotes];
+        _searchNoteView = sortedNotes;
+    }
+    previousQuery = query;
+    return _searchNoteView;
+}
+
+
 - (SmartNote*) GetEditingNote{
     return editingNote;
 }
@@ -96,7 +150,7 @@ static NSString* notesFilePath;
 
 -(void) SaveEditingNote: (NSString*) newNoteData{
     [editingNote SetNoteData:newNoteData];
-    [self UpdateViews];
+    [self ResetViews];
     [self SaveToFile];
     return;
     
@@ -108,7 +162,7 @@ static NSString* notesFilePath;
         [currentNote SetNoteData: currentNoteData];
         [allNotes addObject:currentNote];
     }
-    [self UpdateViews];
+    [self ResetViews];
     [self SaveToFile];
     
     return;
@@ -117,15 +171,15 @@ static NSString* notesFilePath;
 -(void)AddNote:(NSString *)noteData{
     SmartNote* note = [[SmartNote alloc]init];
     [note SetNoteData:noteData];
-    [allNotes addObject:note];
-    [self UpdateViews];
+    [allNotes insertObject:note atIndex:0];
+    [self ResetViews];
     [self SaveToFile];
 }
 
 - (void)DeleteNoteFromView:(NSUInteger)viewIndex{
     SmartNote* noteToDelete = [_searchNoteView objectAtIndex:viewIndex];
+    [_searchNoteView removeObjectAtIndex:viewIndex];
     [allNotes removeObject:noteToDelete];
-    [self UpdateViews];
     [self SaveToFile];
 }
 
@@ -162,7 +216,7 @@ static NSString* notesFilePath;
     return [note GetNoteDetail];
 }
 
--(void) UpdateViews{
+-(void) ResetViews{
     _searchNoteView = allNotes;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+NSString* const SEPERATOR = @"\n---------------------\n";
 
 @interface FirstViewController (){
     SmartNotesModel* _model;
@@ -21,10 +22,13 @@
 @synthesize UIView_TextView_Container;
 @synthesize Constraint_Bottom_Distance;
 @synthesize Constraint_TextView_Display_Data_Bottom;
+@synthesize Constraint_Button_Hide_Keyboard_Bottom;
+@synthesize Constraint_TextField_Input_Right;
+@synthesize Constraint_UIImageView_TextField_Input_Background_Bottom;
 @synthesize TableView_noteView;
 @synthesize UIView_ResponseView;
 @synthesize Button_Hide_Keyboard;
-@synthesize Constraint_Button_Hide_Keyboard_Bottom;
+@synthesize UIImageView_TextField_Background;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,14 +54,56 @@
 }
 
 -(void) textFieldDidChange: (UIControlEvents*) event{
-    NSArray* searchResults = [_model GetMatchingNotes:TextField_Input.text];
+    //INITIALIZATION
+    
+    //END INTIALIZATION
+    
+    //
+    //INPUT PARSING
+//    NSArray* inputTokens = [TextField_Input.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    NSMutableArray* inputTokensMutable = [[NSMutableArray alloc]initWithArray:inputTokens];
+//    for(int tokenIdx = 0; tokenIdx < [inputTokensMutable count]; ++tokenIdx){
+////        NSDate* now = [NSDate date];
+////        for(int dayOffset = 1; dayOffset < 8; ++dayOffset){
+////            NSDate* expectedDate = [now dateByAddingTimeInterval:dayOffset*24*60*60];
+////            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
+////            [dateFormatter setDateFormat:@"EEEE"];
+////            NSString* expectedDayString = [dateFormatter stringFromDate:expectedDate];
+////            if([[inputTokensMutable objectAtIndex:tokenIdx] isEqualToString: expectedDayString]){
+////                [dateFormatter setDateFormat:@"dd-MM-YYYY"];
+////                NSString* datex = [dateFormatter stringFromDate:expectedDate];
+////                [inputTokensMutable replaceObjectAtIndex:tokenIdx withObject: datex];
+////                break;
+////            }
+////        }
+//        NSString* date = [Algorithms ConvertDayToDate:[inputTokensMutable objectAtIndex:tokenIdx]];
+//        if(date != nil){
+//            if(tokenIdx > 0 &&
+//               ![[inputTokensMutable objectAtIndex:(tokenIdx - 1)] isEqualToString:@"next"] &&
+//               ![[inputTokensMutable objectAtIndex:(tokenIdx - 1)] isEqualToString:@"every"] &&
+//               ![[inputTokensMutable objectAtIndex:(tokenIdx - 1)] isEqualToString:@"last"])
+//            {
+//                [synonyms addObject:[inputTokensMutable objectAtIndex:tokenIdx]];
+//                [inputTokensMutable replaceObjectAtIndex:tokenIdx withObject:date];
+//            }
+//            
+//        }
+//    }
+//    
+//    TextField_Input.text = [inputTokensMutable componentsJoinedByString:@" "];
+    TextField_Input.text = [Algorithms ReplaceAllDaysWithDates:TextField_Input.text];
+    //END INPUT PARSING
+
+    //SEARCH
+    
+    NSArray* searchResults = [_model GetMatchingNotesSorted:TextField_Input.text];
     NSMutableArray* searchResultsStr = [[NSMutableArray alloc]init];
     for(SmartNote* note in searchResults){
         NSString* noteData = [note GetNoteData];
         [searchResultsStr addObject:noteData];
     }
     [TextView_Display_Data setDataDetectorTypes:UIDataDetectorTypeNone];
-    TextView_Display_Data.text = [searchResultsStr componentsJoinedByString:@"\n"];
+    TextView_Display_Data.text = [searchResultsStr componentsJoinedByString:SEPERATOR];
     [TextView_Display_Data setDataDetectorTypes:UIDataDetectorTypeAll];
     
     [TableView_noteView reloadData];
@@ -67,10 +113,12 @@
     else{
         [TextView_Display_Data setHidden:NO];
     }
+    //END SEARCH
+    
 }
 
 - (BOOL)textFieldShouldReturn:(nonnull UITextField *)textField{
-    [textField resignFirstResponder];
+    //[textField resignFirstResponder];
     NSString* newNoteData = textField.text;
     [_model AddNote:newNoteData];
     textField.text = @"";
@@ -85,31 +133,49 @@
     [TextField_Input setTranslatesAutoresizingMaskIntoConstraints:YES];
     [TextView_Display_Data setTranslatesAutoresizingMaskIntoConstraints:YES];
     [Button_Hide_Keyboard setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [UIImageView_TextField_Background setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [self.view setTranslatesAutoresizingMaskIntoConstraints:YES];
     
-    CGFloat offset = -258 + 40 + 55;
-    [TableView_noteView setContentInset:UIEdgeInsetsMake(0, 0, -offset, 0)];
-    [TableView_noteView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, -offset, 0)];
+    CGRect keyboardFrame = [[[notification userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect screenFrame = [UIScreen mainScreen].bounds;
+    
+    
+    CGFloat offset = -(keyboardFrame.size.height);
+    
+    [TableView_noteView setContentInset:UIEdgeInsetsMake(0, 0, -(offset - TextView_Display_Data.frame.size.height), 0)];
+    [TableView_noteView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, -(offset - TextView_Display_Data.frame.size.height), 0)];
     
     CGRect textfieldFrame = TextField_Input.frame;
-    //textfieldFrame.origin.y = textfieldFrame.origin.y - 258 + 40;
-    textfieldFrame.origin.y = textfieldFrame.origin.y + offset;
-    textfieldFrame.size.height = 30;
-
-    CGRect textViewFrame = TextView_Display_Data.frame;
-    textViewFrame.origin.y = textViewFrame.origin.y + offset;
-    
     CGRect buttonHideKeyboardFrame = Button_Hide_Keyboard.frame;
-    buttonHideKeyboardFrame.origin.y = buttonHideKeyboardFrame.origin.y + offset;
+    CGRect textfieldBackgroundFrame = UIImageView_TextField_Background.frame;
+    CGRect textViewFrame = TextView_Display_Data.frame;
+    CGFloat padding = (textfieldBackgroundFrame.size.height - textfieldFrame.size.height) / 2;
     
+    textfieldFrame.origin.y = keyboardFrame.origin.y - textfieldFrame.size.height - padding;
+    
+    buttonHideKeyboardFrame.origin.y = keyboardFrame.origin.y - buttonHideKeyboardFrame.size.height - padding;
+
+    textfieldBackgroundFrame.origin.y = keyboardFrame.origin.y - textfieldBackgroundFrame.size.height;
+
+    textViewFrame.origin.y = keyboardFrame.origin.y - textfieldBackgroundFrame.size.height - textViewFrame.size.height;
+    textfieldFrame.size.width = screenFrame.size.width - Button_Hide_Keyboard.frame.size.width;
+
+
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.29];
+    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView setAnimationDuration:animationDuration];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] floatValue];
+    [UIView setAnimationCurve:animationCurve];
     
     [self.view removeConstraint:Constraint_Bottom_Distance];
     [self.view removeConstraint:Constraint_TextView_Display_Data_Bottom];
     [self.view removeConstraint:Constraint_Button_Hide_Keyboard_Bottom];
+    [self.view removeConstraint:Constraint_TextField_Input_Right];
+    [self.view removeConstraint:Constraint_UIImageView_TextField_Input_Background_Bottom];
     [TextField_Input setFrame:textfieldFrame];
     [TextView_Display_Data setFrame:textViewFrame];
     [Button_Hide_Keyboard setFrame: buttonHideKeyboardFrame];
+    [UIImageView_TextField_Background setFrame:textfieldBackgroundFrame];
     
     [Button_Hide_Keyboard setHidden:NO];
     [self.view updateConstraintsIfNeeded];
@@ -120,34 +186,55 @@
     [TextField_Input setTranslatesAutoresizingMaskIntoConstraints:YES];
     [TextView_Display_Data setTranslatesAutoresizingMaskIntoConstraints:YES];
     [Button_Hide_Keyboard setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [UIImageView_TextField_Background setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [self.view setTranslatesAutoresizingMaskIntoConstraints:YES];
     
-    CGFloat offset = 258 - 40 - 55;
+    CGRect keyboardFrame = [[[notification userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect screenFrame = [UIScreen mainScreen].bounds;
+    CGRect viewFrame = self.view.frame;
+    
+    CGFloat uiBarHeight = 42;
+    
+    CGFloat offset = keyboardFrame.size.height - uiBarHeight;
+    
     [TableView_noteView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     [TableView_noteView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, -offset, 0)];
     
-
-    
     CGRect textfieldFrame = TextField_Input.frame;
-    textfieldFrame.origin.y = textfieldFrame.origin.y + offset;
-    textfieldFrame.size.height = 30;
-    
+    CGRect textfieldBackgroundFrame = UIImageView_TextField_Background.frame;
     CGRect textViewFrame = TextView_Display_Data.frame;
+    CGRect buttonHideKeyboardFrame = Button_Hide_Keyboard.frame;
+    CGFloat padding = (textfieldBackgroundFrame.size.height - textfieldFrame.size.height) / 2;
+    
+
+    textfieldFrame.origin.y = textfieldFrame.origin.y + offset - padding;
+    
+    //textfieldFrame.origin.y = viewFrame.size.height - textfieldFrame.size.height-150;
+    textfieldFrame.size.width += Button_Hide_Keyboard.frame.size.width;
+    
+    
+    textfieldBackgroundFrame.origin.y = textfieldBackgroundFrame.origin.y + offset - padding;
+    
+    
     textViewFrame.origin.y = textViewFrame.origin.y + offset;
     
-    CGRect buttonHideKeyboardFrame = Button_Hide_Keyboard.frame;
-    buttonHideKeyboardFrame.origin.y = buttonHideKeyboardFrame.origin.y + offset;
+    
+    buttonHideKeyboardFrame.origin.y = buttonHideKeyboardFrame.origin.y + offset - padding;
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];
     [self.view removeConstraint:Constraint_Bottom_Distance];
     [self.view removeConstraint:Constraint_TextView_Display_Data_Bottom];
     [self.view removeConstraint:Constraint_Button_Hide_Keyboard_Bottom];
+    [self.view removeConstraint:Constraint_TextField_Input_Right];
+    [self.view removeConstraint:Constraint_UIImageView_TextField_Input_Background_Bottom];
     
+    [Button_Hide_Keyboard setHidden:YES];
     [TextField_Input setFrame:textfieldFrame];
     [TextView_Display_Data setFrame:textViewFrame];
     [Button_Hide_Keyboard setFrame:buttonHideKeyboardFrame];
+    [UIImageView_TextField_Background setFrame:textfieldBackgroundFrame];
     
-    [Button_Hide_Keyboard setHidden:YES];
     [self.view updateConstraintsIfNeeded];
     [UIView commitAnimations];
 }
@@ -162,8 +249,10 @@
 }
 
 - (IBAction)Button_Hide_Keyboard_Touch_Up_Inside:(id)sender {
-    TextField_Input.text = @"";
+    //TextField_Input.text = @"";
     [TextView_Display_Data setHidden:YES];
+    //[_model ResetViews];
+    [TableView_noteView reloadData];
     [TextField_Input resignFirstResponder];
 }
 
@@ -175,7 +264,7 @@
 -(NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSUInteger count = 0;
     if(tableView == TableView_noteView){
-        return [_model GetSearchView].count;
+        count = [_model GetSearchView].count;
     }
     return count;
 }
@@ -274,11 +363,8 @@
     
     if(tableView == TableView_noteView){
         if(editingStyle == UITableViewCellEditingStyleDelete){
-            if([TextField_Input.text isEqualToString:@""]){
-                
-                [_model DeleteNoteFromView:indexPath.row];
-                [TableView_noteView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            }
+            [_model DeleteNoteFromView:indexPath.row];
+            [TableView_noteView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
     }
     

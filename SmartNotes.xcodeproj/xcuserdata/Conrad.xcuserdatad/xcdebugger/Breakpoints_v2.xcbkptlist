@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartNotes/FirstViewController.m"
-            timestampString = "460914120.901126"
+            filePath = "SmartNote.m"
+            timestampString = "461180079.720521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-MatchesQuery:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartNotes/FirstViewController.m"
-            timestampString = "460914120.901126"
+            filePath = "SmartNotes/Library/Algorithms.m"
+            timestampString = "461181869.769982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "+ConvertDayToDate:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,46 +41,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartNotes/SmartNotesModel.m"
-            timestampString = "460909431.516978"
+            filePath = "SmartNotes/Library/Algorithms.m"
+            timestampString = "461181895.184043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-SaveToFile"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "+ConvertDayToDate:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SmartNotesModel SaveToFile]"
-                  moduleName = "SmartNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Conrad/Personal/Design/XCode%20Projects/SmartNotes/SmartNotes/SmartNotesModel.m"
-                  timestampString = "460908838.904757"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "120">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SmartNotesModel SaveToFile]"
-                  moduleName = "SmartNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Conrad/Personal/Design/XCode%20Projects/SmartNotes/SmartNotes/SmartNotesModel.m"
-                  timestampString = "460908838.904919"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "140">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartNotes/Library/Algorithms.m"
+            timestampString = "461181898.924359"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "+ConvertDayToDate:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7902769F1B7882A3006A2204 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7902769E1B7882A3006A2204 /* EditViewController.m */; };
 		790276A11B789922006A2204 /* allNotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 790276A01B789922006A2204 /* allNotes.plist */; };
+		792ABF601B7CDA7700F7C32D /* Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF5F1B7CDA7700F7C32D /* Algorithms.m */; };
 		7956020C1B761E9B001B5343 /* SmartNotesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956020B1B761E9B001B5343 /* SmartNotesModel.m */; };
 		7956020F1B762A9A001B5343 /* SmartNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956020E1B762A9A001B5343 /* SmartNote.m */; };
 		79890ECA1B6E069A004663B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890EC91B6E069A004663B5 /* main.m */; };
@@ -43,6 +44,8 @@
 		7902769D1B7882A3006A2204 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditViewController.h; path = SmartNotes/EditViewController.h; sourceTree = "<group>"; };
 		7902769E1B7882A3006A2204 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditViewController.m; path = SmartNotes/EditViewController.m; sourceTree = "<group>"; };
 		790276A01B789922006A2204 /* allNotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = allNotes.plist; sourceTree = "<group>"; };
+		792ABF5E1B7CDA7700F7C32D /* Algorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Algorithms.h; path = SmartNotes/Library/Algorithms.h; sourceTree = "<group>"; };
+		792ABF5F1B7CDA7700F7C32D /* Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Algorithms.m; path = SmartNotes/Library/Algorithms.m; sourceTree = "<group>"; };
 		7956020A1B761E9B001B5343 /* SmartNotesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartNotesModel.h; path = SmartNotes/SmartNotesModel.h; sourceTree = "<group>"; };
 		7956020B1B761E9B001B5343 /* SmartNotesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartNotesModel.m; path = SmartNotes/SmartNotesModel.m; sourceTree = "<group>"; };
 		7956020D1B762A9A001B5343 /* SmartNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartNote.h; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 		79890EBC1B6E069A004663B5 = {
 			isa = PBXGroup;
 			children = (
+				792ABF5E1B7CDA7700F7C32D /* Algorithms.h */,
+				792ABF5F1B7CDA7700F7C32D /* Algorithms.m */,
 				7956020A1B761E9B001B5343 /* SmartNotesModel.h */,
 				7956020B1B761E9B001B5343 /* SmartNotesModel.m */,
 				7956020D1B762A9A001B5343 /* SmartNote.h */,
@@ -296,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79890ED31B6E069A004663B5 /* SecondViewController.m in Sources */,
+				792ABF601B7CDA7700F7C32D /* Algorithms.m in Sources */,
 				7956020F1B762A9A001B5343 /* SmartNote.m in Sources */,
 				79890ECD1B6E069A004663B5 /* AppDelegate.m in Sources */,
 				7902769F1B7882A3006A2204 /* EditViewController.m in Sources */,

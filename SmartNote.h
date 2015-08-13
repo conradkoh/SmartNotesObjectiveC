@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Algorithms.h"
+typedef enum {TRANSIENT, PERSISTENT, UNSPECIFIED} NOTETYPE;
 
 @interface SmartNote : NSObject
 - (NSString* ) GetNoteData;
+- (NOTETYPE) GetNoteType;
+- (void) SetNoteType: (NOTETYPE) noteType;
 - (void) SetNoteData: (NSString*) noteData;
 - (NSString*) GetNoteTitle;
 - (NSString*) GetNoteDetail;
+
+- (BOOL) MatchesQuery: (NSString*) query;
 @end

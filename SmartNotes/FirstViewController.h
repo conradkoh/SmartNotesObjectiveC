@@ -22,9 +22,12 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *Constraint_Bottom_Distance;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *Constraint_TextView_Display_Data_Bottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *Constraint_Button_Hide_Keyboard_Bottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *Constraint_TextField_Input_Right;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *Constraint_UIImageView_TextField_Input_Background_Bottom;
 
 @property (weak, nonatomic) IBOutlet UIView *UIView_ResponseView;
 @property (weak, nonatomic) IBOutlet UIButton *Button_Hide_Keyboard;
+@property (weak, nonatomic) IBOutlet UIImageView *UIImageView_TextField_Background;
 
 
 @end
