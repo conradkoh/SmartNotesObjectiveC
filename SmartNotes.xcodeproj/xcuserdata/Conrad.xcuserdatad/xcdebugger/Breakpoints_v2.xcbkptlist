@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartNote.m"
-            timestampString = "461180079.720521"
+            timestampString = "462022489.776777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-MatchesQuery:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartNotes/Library/Algorithms.m"
-            timestampString = "461181869.769982"
+            filePath = "SmartNote.m"
+            timestampString = "462022489.776777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "+ConvertDayToDate:"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-MatchesQuery:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartNotes/Library/Algorithms.m"
-            timestampString = "461181895.184043"
+            filePath = "SmartNote.m"
+            timestampString = "462023620.074198"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "+ConvertDayToDate:"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-MatchesQuery:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartNotes/Library/Algorithms.m"
-            timestampString = "461181898.924359"
+            filePath = "SmartNote.m"
+            timestampString = "462022489.776777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "+ConvertDayToDate:"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-MatchesQuery:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

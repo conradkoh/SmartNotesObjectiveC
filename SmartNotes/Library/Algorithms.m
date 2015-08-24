@@ -41,6 +41,9 @@
             [dateFormatter setDateFormat:@"EEEE"];
             output = expectedDate;
         }
+        else if([[dayString lowercaseString] isEqualToString:@"today"]){
+            output = now;
+        }
     }
     return output;
 }

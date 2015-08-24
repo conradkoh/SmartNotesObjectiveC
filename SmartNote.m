@@ -9,7 +9,6 @@
 #import "SmartNote.h"
 
 static NSString* const blockDelimiter = @"\n<blockdelimiter>\n";
-static NSString* const PERSISTENTNOTESPECIFIER = @"[persistent]";
 @implementation SmartNote{
     NSString* _noteData;
     NSString* _noteTitle;
@@ -131,21 +130,26 @@ static NSString* const PERSISTENTNOTESPECIFIER = @"[persistent]";
             day = [[dateformatter stringFromDate:dateObj] lowercaseString];
         }
         
-        
+        BOOL queryTokenFound = false;
         for(NSString* noteToken in noteTokens){
-            NSRange queryRange = [noteToken rangeOfString:queryToken];
-            if(queryRange.location == 0){
-                matches = matches + 1;
-            }
-            else{
-                if(day != nil){
-                    NSRange dayRange = [noteToken rangeOfString:day];
-                    if(dayRange.location == 0){
-                        matches = matches + 1;
+            if(queryTokenFound == false){
+                if([noteToken containsString:queryToken]){
+                    matches = matches + 1;
+                    queryTokenFound = true;
+                    break;
+                }
+                else{
+                    if(day != nil){
+                        NSRange dayRange = [noteToken rangeOfString:day];
+                        if(dayRange.location == 0){
+                            matches = matches + 1;
+                            queryTokenFound = true;
+                            break;
+                        }
                     }
                 }
-                
             }
+            
         }
     }
     

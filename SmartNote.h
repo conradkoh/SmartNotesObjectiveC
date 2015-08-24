@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Algorithms.h"
 typedef enum {TRANSIENT, PERSISTENT, UNSPECIFIED} NOTETYPE;
-
+static NSString* const PERSISTENTNOTESPECIFIER = @"[persistent]";
 @interface SmartNote : NSObject
 - (NSString* ) GetNoteData;
 - (NOTETYPE) GetNoteType;

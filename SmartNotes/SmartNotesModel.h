@@ -11,7 +11,7 @@
 
 @interface SmartNotesModel : NSObject
 
-- (NSArray*) GetMatchingNotes: (NSString*) query;
+//- (NSArray*) GetMatchingNotes: (NSString*) query;
 - (NSArray*) GetMatchingNotesSorted: (NSString*) query;
 - (SmartNote*) GetEditingNote;
 - (void) SetEditingNote: (NSUInteger) index;

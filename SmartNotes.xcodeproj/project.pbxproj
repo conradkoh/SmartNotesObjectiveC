@@ -12,6 +12,7 @@
 		792ABF601B7CDA7700F7C32D /* Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF5F1B7CDA7700F7C32D /* Algorithms.m */; };
 		7956020C1B761E9B001B5343 /* SmartNotesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956020B1B761E9B001B5343 /* SmartNotesModel.m */; };
 		7956020F1B762A9A001B5343 /* SmartNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7956020E1B762A9A001B5343 /* SmartNote.m */; };
+		796E99A21B84807F00A5B6CD /* notesArchive.plist in Resources */ = {isa = PBXBuildFile; fileRef = 796E99A11B84807F00A5B6CD /* notesArchive.plist */; };
 		79890ECA1B6E069A004663B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890EC91B6E069A004663B5 /* main.m */; };
 		79890ECD1B6E069A004663B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ECC1B6E069A004663B5 /* AppDelegate.m */; };
 		79890ED01B6E069A004663B5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79890ECF1B6E069A004663B5 /* FirstViewController.m */; };
@@ -50,6 +51,7 @@
 		7956020B1B761E9B001B5343 /* SmartNotesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartNotesModel.m; path = SmartNotes/SmartNotesModel.m; sourceTree = "<group>"; };
 		7956020D1B762A9A001B5343 /* SmartNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartNote.h; sourceTree = "<group>"; };
 		7956020E1B762A9A001B5343 /* SmartNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartNote.m; sourceTree = "<group>"; };
+		796E99A11B84807F00A5B6CD /* notesArchive.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = notesArchive.plist; sourceTree = "<group>"; };
 		79890EC51B6E069A004663B5 /* SmartNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79890EC91B6E069A004663B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		79890ECB1B6E069A004663B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				79890EC91B6E069A004663B5 /* main.m */,
 				790276A01B789922006A2204 /* allNotes.plist */,
+				796E99A11B84807F00A5B6CD /* notesArchive.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				79890EDB1B6E069A004663B5 /* LaunchScreen.storyboard in Resources */,
 				79890ED81B6E069A004663B5 /* Assets.xcassets in Resources */,
+				796E99A21B84807F00A5B6CD /* notesArchive.plist in Resources */,
 				790276A11B789922006A2204 /* allNotes.plist in Resources */,
 				79890ED61B6E069A004663B5 /* Main.storyboard in Resources */,
 			);

@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zpx-n7-gUf">
-                                <rect key="frame" x="0.0" y="20" width="600" height="357"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zpx-n7-gUf">
+                                <rect key="frame" x="0.0" y="60" width="600" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7q-sq-91K">
@@ -81,25 +81,50 @@
                                     <action selector="Button_Hide_Keyboard_Touch_Up_Inside:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Bl5-pN-g85"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="Og7-iH-w21">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="W5D-r5-Y5v"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71C-2i-a25">
+                                <rect key="frame" x="527" y="22" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cek-28-rOf"/>
+                                    <constraint firstAttribute="width" constant="57" id="o0L-PG-RIv"/>
+                                </constraints>
+                                <state key="normal" title="Persist">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Button_Toggle_Persist_Touch_Up_Inside:" destination="9pv-A4-QxB" eventType="touchUpInside" id="66z-c7-H0p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="S7q-sq-91K" secondAttribute="bottom" constant="49" id="1jx-Sm-NEY"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="d3s-Xt-wJr" secondAttribute="bottom" constant="9" id="2Wd-9I-Hew"/>
+                            <constraint firstItem="Zpx-n7-gUf" firstAttribute="top" secondItem="Og7-iH-w21" secondAttribute="bottom" id="5Ki-v8-ihI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="71C-2i-a25" secondAttribute="trailing" constant="-4" id="5VW-c2-R2b"/>
                             <constraint firstItem="d3s-Xt-wJr" firstAttribute="leading" secondItem="LkG-Tf-TFI" secondAttribute="trailing" id="5oZ-JX-de6"/>
                             <constraint firstItem="Zpx-n7-gUf" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="6jh-Zr-l6n"/>
                             <constraint firstItem="S7q-sq-91K" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="8YJ-Pj-cE4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Og7-iH-w21" secondAttribute="trailing" constant="-20" id="9Cu-4x-reR"/>
                             <constraint firstItem="13K-JH-caD" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="BUZ-jB-OvP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zpx-n7-gUf" secondAttribute="trailing" constant="-20" id="HSR-PK-i6C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LkG-Tf-TFI" secondAttribute="trailing" constant="5" id="J0l-J4-foy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LkG-Tf-TFI" secondAttribute="trailing" constant="-15" id="N8T-HO-AJD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="13K-JH-caD" secondAttribute="trailing" constant="-20" id="RxK-Pl-s1j"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="LkG-Tf-TFI" secondAttribute="bottom" constant="8" id="TXh-Gp-2vO"/>
+                            <constraint firstItem="Og7-iH-w21" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="Wjx-EH-krs"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="13K-JH-caD" secondAttribute="bottom" constant="38" id="eTo-qR-7FN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d3s-Xt-wJr" secondAttribute="trailing" constant="-20" id="gJe-oM-U54"/>
+                            <constraint firstItem="Og7-iH-w21" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="kdP-46-8fD"/>
                             <constraint firstItem="LkG-Tf-TFI" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-15" id="scn-R1-N8b"/>
                             <constraint firstItem="Zpx-n7-gUf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="u35-uP-KWe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S7q-sq-91K" secondAttribute="trailing" constant="-20" id="vu8-1K-u79"/>
+                            <constraint firstItem="71C-2i-a25" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="2" id="w6b-by-bDf"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Zpx-n7-gUf" secondAttribute="bottom" constant="46" id="wbQ-h4-4BR"/>
                         </constraints>
                         <variation key="default">
@@ -107,6 +132,7 @@
                                 <exclude reference="433-sx-QhY"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="6jh-Zr-l6n"/>
                                 <exclude reference="J0l-J4-foy"/>
                                 <exclude reference="5oZ-JX-de6"/>
                             </mask>
@@ -115,6 +141,7 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="Button_Hide_Keyboard" destination="d3s-Xt-wJr" id="v42-XO-nFX"/>
+                        <outlet property="Button_Toggle_Persist" destination="71C-2i-a25" id="JWp-mG-d02"/>
                         <outlet property="Constraint_Bottom_Distance" destination="TXh-Gp-2vO" id="JbD-sB-BT3"/>
                         <outlet property="Constraint_Button_Hide_Keyboard_Bottom" destination="2Wd-9I-Hew" id="Bfb-Yo-JfH"/>
                         <outlet property="Constraint_TextField_Input_Right" destination="N8T-HO-AJD" id="jjI-OL-XZU"/>

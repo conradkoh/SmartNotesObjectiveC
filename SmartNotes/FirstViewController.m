@@ -8,9 +8,10 @@
 
 #import "FirstViewController.h"
 NSString* const SEPERATOR = @"\n---------------------\n";
-
+typedef enum {PERSIST, DEFAULT} MODE;
 @interface FirstViewController (){
     SmartNotesModel* _model;
+    MODE _mode;
 }
 
 @end
@@ -28,6 +29,7 @@ NSString* const SEPERATOR = @"\n---------------------\n";
 @synthesize TableView_noteView;
 @synthesize UIView_ResponseView;
 @synthesize Button_Hide_Keyboard;
+@synthesize Button_Toggle_Persist;
 @synthesize UIImageView_TextField_Background;
 
 - (void)viewDidLoad {
@@ -45,12 +47,17 @@ NSString* const SEPERATOR = @"\n---------------------\n";
     TextField_Input.delegate = self;
     TableView_noteView.delegate = self;
     TableView_noteView.dataSource = self;
+    _mode = DEFAULT;
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIStatusBarStyle) preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 -(void) textFieldDidChange: (UIControlEvents*) event{
@@ -121,7 +128,13 @@ NSString* const SEPERATOR = @"\n---------------------\n";
     //[textField resignFirstResponder];
     NSString* newNoteData = textField.text;
     [_model AddNote:newNoteData];
-    textField.text = @"";
+    if(_mode == PERSIST){
+        textField.text = [PERSISTENTNOTESPECIFIER stringByAppendingString:@" "];
+    }
+    else{
+        textField.text = @"";
+    }
+    
     if(textField == TextField_Input){
         [TextView_Display_Data setHidden:YES];
     }
@@ -138,9 +151,15 @@ NSString* const SEPERATOR = @"\n---------------------\n";
     
     CGRect keyboardFrame = [[[notification userInfo] valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGRect screenFrame = [UIScreen mainScreen].bounds;
+    CGRect statusBarFrameSize = [[UIApplication sharedApplication]statusBarFrame];
     
+    CGFloat offset = -(keyboardFrame.size.height) - statusBarFrameSize.size.height + 20;
     
-    CGFloat offset = -(keyboardFrame.size.height);
+    //check if status bar is large version when hotspot is on
+
+    if(statusBarFrameSize.size.height > 20){
+        keyboardFrame = CGRectMake(keyboardFrame.origin.x, keyboardFrame.origin.y - 20, keyboardFrame.size.width, keyboardFrame.size.height);
+    }
     
     [TableView_noteView setContentInset:UIEdgeInsetsMake(0, 0, -(offset - TextView_Display_Data.frame.size.height), 0)];
     [TableView_noteView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, -(offset - TextView_Display_Data.frame.size.height), 0)];
@@ -248,13 +267,6 @@ NSString* const SEPERATOR = @"\n---------------------\n";
 - (IBAction)TextField_Input_Editing_Did_End:(id)sender {
 }
 
-- (IBAction)Button_Hide_Keyboard_Touch_Up_Inside:(id)sender {
-    //TextField_Input.text = @"";
-    [TextView_Display_Data setHidden:YES];
-    //[_model ResetViews];
-    [TableView_noteView reloadData];
-    [TextField_Input resignFirstResponder];
-}
 
 #pragma TableViewInit
 -(NSInteger) numberOfSectionsInTableView:(nonnull UITableView *)tableView{
@@ -278,66 +290,10 @@ NSString* const SEPERATOR = @"\n---------------------\n";
     [cell.detailTextLabel setTextColor:[UIColor grayColor]];
     //Main View
     if(tableView == TableView_noteView){
-//        
-//        //        Add/Edit buttons
-//        UIButton* addButton = [[UIButton alloc]initWithFrame:(CGRectMake(5, 6, 40, 40))];
-//        UIButton* editButton = [[UIButton alloc]initWithFrame:(CGRectMake(45, 6, 40, 40))];
-//        
-//        //        UIButton* addButton = [[UIButton alloc]initWithFrame:(CGRectMake(290, 6, 40, 40))];
-//        //        UIButton* editButton = [[UIButton alloc]initWithFrame:(CGRectMake(335, 6, 40, 40))];
-//        [addButton setImage:[UIImage imageNamed:@"Icon_Button_Add_Small"] forState:UIControlStateNormal];
-//        [editButton setImage:[UIImage imageNamed:@"Icon_Button_Edit_Small"] forState:UIControlStateNormal];
-//        [addButton setTag:indexPath.row];
-//        [editButton setTag:indexPath.row];
-//        
-//        [addButton addTarget:self action:@selector(MainAddButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        [editButton addTarget:self action:@selector(MainEditButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        
-//        [cell addSubview:addButton];
-//        [cell addSubview:editButton];
-//        [cell setIndentationWidth:85];
-//        [cell setIndentationLevel:1];
-//        
-//        // cell.frame.size.width = 200;
-//        
-//        
+
         cell.textLabel.text = [_model SearchNoteTitleAtIndex:indexPath.row];
         cell.detailTextLabel.text = [_model SearchNoteDetailAtIndex: indexPath.row];
     }
-    //Search Bar
-//    else if(tableView == self.searchDisplayController.searchResultsTableView){
-//        
-//        
-//        //Add/Edit buttons
-//        UIButton* addButton = [[UIButton alloc]initWithFrame:(CGRectMake(5, 6, 40, 40))];
-//        UIButton* editButton = [[UIButton alloc]initWithFrame:(CGRectMake(45, 6, 40, 40))];
-//        [addButton setImage:[UIImage imageNamed:@"Icon_Button_Add_Small"] forState:UIControlStateNormal];
-//        [editButton setImage:[UIImage imageNamed:@"Icon_Button_Edit_Small"] forState:UIControlStateNormal];
-//        [addButton setTag:indexPath.row];
-//        [editButton setTag:indexPath.row];
-//        
-//        [addButton addTarget:self action:@selector(SearchAddButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        [editButton addTarget:self action:@selector(SearchEditButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        
-//        [cell addSubview:addButton];
-//        [cell addSubview:editButton];
-//        [cell setIndentationWidth:85];
-//        [cell setIndentationLevel:1];
-//        
-//        
-//        NSString* song = [searchResults objectAtIndex:indexPath.row];
-//        NSRange rangeOfNewLineChar = [song rangeOfString:@"\n"];
-//        if(rangeOfNewLineChar.location!= NSNotFound){
-//            NSString* title = [[song substringToIndex: rangeOfNewLineChar.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//            NSString* details = [[song substringFromIndex:rangeOfNewLineChar.location + 1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//            cell.textLabel.text = title;
-//            cell.detailTextLabel.text = details;
-//        }
-//        else{
-//            cell.textLabel.text = song;
-//        }
-//    }
-    
     return cell;
 }
 
@@ -370,4 +326,32 @@ NSString* const SEPERATOR = @"\n---------------------\n";
     
 }
 
+
+- (IBAction)Button_Toggle_Persist_Touch_Up_Inside:(id)sender {
+    NSString* pNoteSpec = [PERSISTENTNOTESPECIFIER stringByAppendingString:@" "]; //PERSISTENTNOTESPECIFIER IS FOUND IN SMARTNOTE.H
+    if(_mode == DEFAULT){
+        _mode = PERSIST;
+        TextField_Input.text = [pNoteSpec stringByAppendingString:TextField_Input.text];
+        [Button_Toggle_Persist setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+        //Button_Toggle_Persist.titleLabel.text = @"h";
+    }
+    else{
+        NSArray* tokens = [TextField_Input.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if([[tokens objectAtIndex:0] isEqualToString:PERSISTENTNOTESPECIFIER]) {
+            NSRange pNoteSpecIdx = [TextField_Input.text rangeOfString:pNoteSpec];
+            if(pNoteSpecIdx.location != NSNotFound){
+                TextField_Input.text = [TextField_Input.text substringFromIndex:pNoteSpecIdx.location + [pNoteSpec length]];
+            }
+        }
+        [Button_Toggle_Persist setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        //Button_Toggle_Persist.titleLabel.textColor = [UIColor whiteColor];
+        _mode = DEFAULT;
+    }
+}
+
+- (IBAction)Button_Hide_Keyboard_Touch_Up_Inside:(id)sender {
+    [TextView_Display_Data setHidden:YES];
+    [TableView_noteView reloadData];
+    [TextField_Input resignFirstResponder];
+}
 @end
