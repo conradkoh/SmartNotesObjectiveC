@@ -1,4 +1,6 @@
 dependencies: \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNote.m \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNote.h \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/Library/Algorithms.h
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNote.m \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNote.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/Library/Algorithms.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/Typedefinitions.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/Constants.h

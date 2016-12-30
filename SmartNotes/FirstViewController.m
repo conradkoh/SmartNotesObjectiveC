@@ -7,8 +7,7 @@
 //
 
 #import "FirstViewController.h"
-NSString* const SEPERATOR = @"\n---------------------\n";
-typedef enum {PERSIST, DEFAULT} MODE;
+
 @interface FirstViewController (){
     SmartNotesModel* _model;
     MODE _mode;
@@ -31,6 +30,7 @@ typedef enum {PERSIST, DEFAULT} MODE;
 @synthesize Button_Hide_Keyboard;
 @synthesize Button_Toggle_Persist;
 @synthesize UIImageView_TextField_Background;
+@synthesize ImageView_TopBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,6 +49,33 @@ typedef enum {PERSIST, DEFAULT} MODE;
     TableView_noteView.dataSource = self;
     _mode = DEFAULT;
     
+    //Application enter background
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    //Tap to dismiss Keyboard
+    [ImageView_TopBar setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [ImageView_TopBar addGestureRecognizer:tap];
+    
+    //Long press on textview
+//    UILongPressGestureRecognizer* longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(textViewLongPressed:)];
+//    [TextView_Display_Data addGestureRecognizer:longPress];
+}
+
+//- (void) textViewLongPressed:(NSObject*) sender{
+//    if([TextField_Input isFirstResponder]){
+//        [TextView_Display_Data setSelectedRange:NSMakeRange(0, [TextView_Display_Data.text length])];
+//        UITextPosition* start = [TextView_Display_Data positionFromPosition:[TextView_Display_Data beginningOfDocument] offset:0];
+//        UITextPosition* end = [TextView_Display_Data positionFromPosition:[TextView_Display_Data beginningOfDocument] offset:[TextView_Display_Data.text length]];
+//        UITextRange* selectionRange = [TextView_Display_Data textRangeFromPosition:start toPosition:end];
+//        //[TextView_Display_Data setSelectedTextRange:selectionRange];
+//        CGRect rect = [TextView_Display_Data firstRectForRange:selectionRange];
+//        [TextView_Display_Data drawRect:rect];
+//        
+//    }
+//}
+- (void)dismissKeyboard{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +83,11 @@ typedef enum {PERSIST, DEFAULT} MODE;
     // Dispose of any resources that can be recreated.
 }
 
+- (void) applicationWillEnterBackground{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [TextField_Input becomeFirstResponder];
+    });
+}
 - (UIStatusBarStyle) preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -64,53 +96,24 @@ typedef enum {PERSIST, DEFAULT} MODE;
     //INITIALIZATION
     
     //END INTIALIZATION
-    
-    //
-    //INPUT PARSING
-//    NSArray* inputTokens = [TextField_Input.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//    NSMutableArray* inputTokensMutable = [[NSMutableArray alloc]initWithArray:inputTokens];
-//    for(int tokenIdx = 0; tokenIdx < [inputTokensMutable count]; ++tokenIdx){
-////        NSDate* now = [NSDate date];
-////        for(int dayOffset = 1; dayOffset < 8; ++dayOffset){
-////            NSDate* expectedDate = [now dateByAddingTimeInterval:dayOffset*24*60*60];
-////            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
-////            [dateFormatter setDateFormat:@"EEEE"];
-////            NSString* expectedDayString = [dateFormatter stringFromDate:expectedDate];
-////            if([[inputTokensMutable objectAtIndex:tokenIdx] isEqualToString: expectedDayString]){
-////                [dateFormatter setDateFormat:@"dd-MM-YYYY"];
-////                NSString* datex = [dateFormatter stringFromDate:expectedDate];
-////                [inputTokensMutable replaceObjectAtIndex:tokenIdx withObject: datex];
-////                break;
-////            }
-////        }
-//        NSString* date = [Algorithms ConvertDayToDate:[inputTokensMutable objectAtIndex:tokenIdx]];
-//        if(date != nil){
-//            if(tokenIdx > 0 &&
-//               ![[inputTokensMutable objectAtIndex:(tokenIdx - 1)] isEqualToString:@"next"] &&
-//               ![[inputTokensMutable objectAtIndex:(tokenIdx - 1)] isEqualToString:@"every"] &&
-//               ![[inputTokensMutable objectAtIndex:(tokenIdx - 1)] isEqualToString:@"last"])
-//            {
-//                [synonyms addObject:[inputTokensMutable objectAtIndex:tokenIdx]];
-//                [inputTokensMutable replaceObjectAtIndex:tokenIdx withObject:date];
-//            }
-//            
-//        }
-//    }
-//    
-//    TextField_Input.text = [inputTokensMutable componentsJoinedByString:@" "];
     TextField_Input.text = [Algorithms ReplaceAllDaysWithDates:TextField_Input.text];
     //END INPUT PARSING
 
     //SEARCH
     
-    NSArray* searchResults = [_model GetMatchingNotesSorted:TextField_Input.text];
-    NSMutableArray* searchResultsStr = [[NSMutableArray alloc]init];
-    for(SmartNote* note in searchResults){
-        NSString* noteData = [note GetNoteData];
-        [searchResultsStr addObject:noteData];
-    }
+//    NSArray* searchResults = [_model GetMatchingNotesSorted:TextField_Input.text];
+//    NSMutableArray* searchResultsStr = [[NSMutableArray alloc]init];
+//    for(SmartNote* note in searchResults){
+//        NSString* noteData = [note GetNoteData];
+//        [searchResultsStr addObject:noteData];
+//    }
+//    [TextView_Display_Data setDataDetectorTypes:UIDataDetectorTypeNone];
+//    TextView_Display_Data.text = [searchResultsStr componentsJoinedByString:SEPERATOR];
+//    [TextView_Display_Data setDataDetectorTypes:UIDataDetectorTypeAll];
+    
+    [_model GetMatchingNotesSorted:TextField_Input.text];
     [TextView_Display_Data setDataDetectorTypes:UIDataDetectorTypeNone];
-    TextView_Display_Data.text = [searchResultsStr componentsJoinedByString:SEPERATOR];
+    TextView_Display_Data.text = [_model GetSearchNoteViewString];
     [TextView_Display_Data setDataDetectorTypes:UIDataDetectorTypeAll];
     
     [TableView_noteView reloadData];
@@ -123,6 +126,7 @@ typedef enum {PERSIST, DEFAULT} MODE;
     //END SEARCH
     
 }
+
 
 - (BOOL)textFieldShouldReturn:(nonnull UITextField *)textField{
     //[textField resignFirstResponder];
@@ -199,7 +203,10 @@ typedef enum {PERSIST, DEFAULT} MODE;
     [Button_Hide_Keyboard setHidden:NO];
     [self.view updateConstraintsIfNeeded];
     [UIView commitAnimations];
+    
+    
 }
+
 
 -(void) keyboardWillHide:(NSNotification*) notification{
     [TextField_Input setTranslatesAutoresizingMaskIntoConstraints:YES];
@@ -212,12 +219,12 @@ typedef enum {PERSIST, DEFAULT} MODE;
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     CGRect viewFrame = self.view.frame;
     
+    
     CGFloat uiBarHeight = 42;
     
     CGFloat offset = keyboardFrame.size.height - uiBarHeight;
-    
-    [TableView_noteView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-    [TableView_noteView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, -offset, 0)];
+    [TableView_noteView setContentInset:UIEdgeInsetsMake(0, 0, offset, 0)];
+    [TableView_noteView setScrollIndicatorInsets:UIEdgeInsetsMake(0, 0, offset, 0)];
     
     CGRect textfieldFrame = TextField_Input.frame;
     CGRect textfieldBackgroundFrame = UIImageView_TextField_Background.frame;
@@ -235,7 +242,7 @@ typedef enum {PERSIST, DEFAULT} MODE;
     textfieldBackgroundFrame.origin.y = textfieldBackgroundFrame.origin.y + offset - padding;
     
     
-    textViewFrame.origin.y = textViewFrame.origin.y + offset;
+    textViewFrame.origin.y = textViewFrame.origin.y + offset - padding;
     
     
     buttonHideKeyboardFrame.origin.y = buttonHideKeyboardFrame.origin.y + offset - padding;
@@ -260,6 +267,8 @@ typedef enum {PERSIST, DEFAULT} MODE;
 
 - (void)viewWillAppear:(BOOL)animated{
     [TableView_noteView reloadData];
+    TextView_Display_Data.text = [_model GetSearchNoteViewString];
+    [TextField_Input becomeFirstResponder];
 }
 - (IBAction)TextField_Input_Editing_Did_Begin:(id)sender {
 
@@ -301,6 +310,7 @@ typedef enum {PERSIST, DEFAULT} MODE;
     return indexPath;
 }
 
+//tap to select
 - (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
 
     if(tableView == TableView_noteView){
@@ -348,9 +358,14 @@ typedef enum {PERSIST, DEFAULT} MODE;
         _mode = DEFAULT;
     }
 }
+- (IBAction)Button_Export_TouchUpInside:(id)sender {
+    UIPasteboard* pb = [UIPasteboard generalPasteboard];
+    [pb setString:[_model ExportAll]];
+     
+}
 
 - (IBAction)Button_Hide_Keyboard_Touch_Up_Inside:(id)sender {
-    [TextView_Display_Data setHidden:YES];
+    //[TextView_Display_Data setHidden:YES];
     [TableView_noteView reloadData];
     [TextField_Input resignFirstResponder];
 }

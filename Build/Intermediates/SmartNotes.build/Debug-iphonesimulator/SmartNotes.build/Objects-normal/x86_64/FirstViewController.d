@@ -1,6 +1,7 @@
 dependencies: \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/FirstViewController.m \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/FirstViewController.h \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/SmartNotesModel.h \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNote.h \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/Library/Algorithms.h
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/FirstViewController.m \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/FirstViewController.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/SmartNotesModel.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNote.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/Library/Algorithms.h \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/Typedefinitions.h

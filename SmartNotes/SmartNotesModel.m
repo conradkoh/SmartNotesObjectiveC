@@ -7,10 +7,11 @@
 //
 
 #import "SmartNotesModel.h"
-
+#import "Constants.h"
 static SmartNotesModel* singleton;
 static NSString* notesFilePath;
 static NSString* archiveFilePath;
+NSString* const SEPERATOR = @"\n---------------------\n";
 @implementation SmartNotesModel{
     NSMutableArray* allNotes;
     NSMutableArray* _archivedNotes;
@@ -156,6 +157,14 @@ static NSString* archiveFilePath;
     return _searchNoteView;
 }
 
+- (NSString*) GetSearchNoteViewString{
+    NSMutableArray* searchResultsStr = [[NSMutableArray alloc]init];
+    for(SmartNote* note in _searchNoteView){
+        NSString* noteData = [note GetNoteData];
+        [searchResultsStr addObject:noteData];
+    }
+    return [searchResultsStr componentsJoinedByString:SEPERATOR];
+}
 
 - (SmartNote*) GetEditingNote{
     return editingNote;
@@ -168,7 +177,7 @@ static NSString* archiveFilePath;
 
 -(void) SaveEditingNote: (NSString*) newNoteData{
     [editingNote SetNoteData:newNoteData];
-    [self ResetViews];
+    //[self ResetViews];
     [self SaveToFile];
     return;
     
@@ -188,10 +197,28 @@ static NSString* archiveFilePath;
 
 -(void)AddNote:(NSString *)noteData{
     SmartNote* note = [[SmartNote alloc]init];
+    noteData = [[[[noteData stringByAppendingString:@"\n" ]
+                  stringByAppendingString: DELIMITER_COPYSTART]
+                 stringByAppendingString:@"\n"]
+                stringByAppendingString:DELIMITER_COPYEND];
+    
     [note SetNoteData:noteData];
+    
     [allNotes insertObject:note atIndex:0];
     [self ResetViews];
     [self SaveToFile];
+}
+
+-(void) DeleteAllNotes{
+    for(int i = 0; i < [allNotes count]; i++){
+        SmartNote* note = [allNotes objectAtIndex:i];
+        [self DeleteNoteFromAllNotes:note];
+    }
+    
+    allNotes = [[NSMutableArray alloc]init];
+    _searchNoteView = [[NSMutableArray alloc]init];
+    [self SaveToFile];
+    
 }
 
 - (void)DeleteNoteFromView:(NSUInteger)viewIndex{
@@ -261,6 +288,33 @@ static NSString* archiveFilePath;
     return [note GetNoteDetail];
 }
 
+-(NSString *)ExportAll{
+    NSUInteger count = allNotes.count;
+    NSString* output = @"";
+    for(int i = 0; i < count; i++){
+        SmartNote* cur = [allNotes objectAtIndex:i];
+        output = [output stringByAppendingString:[cur GetNoteData]];
+        if(i+1 != count){
+            output = [output stringByAppendingString:SEPERATOR];
+        }
+    }
+    return output;
+}
+
+-(void)LoadDataFromString:(NSString *)data{
+    NSMutableArray* noteStrings = [[NSMutableArray alloc]initWithArray:[data componentsSeparatedByString:SEPERATOR]];
+    NSMutableArray* notes = [[NSMutableArray alloc]init];
+    for(NSString* noteData in noteStrings){
+        SmartNote* note = [[SmartNote alloc]init];
+        [note SetNoteData:noteData];
+        [notes addObject:note];
+    }
+    allNotes = notes;
+    _searchNoteView = allNotes;
+    [self SaveToFile];
+    
+}
+
 -(NSArray *)GetSearchView{
     return _searchNoteView;
 }
@@ -278,5 +332,7 @@ static NSString* archiveFilePath;
 -(void) ResetViews{
     _searchNoteView = allNotes;
 }
+
+
 
 @end

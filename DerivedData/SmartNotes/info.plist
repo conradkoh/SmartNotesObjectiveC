@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LastAccessedDate</key>
+	<date>2016-12-30T01:40:22Z</date>
 	<key>WorkspacePath</key>
-	<string>/Users/Conrad/Personal/Design/XCode Projects/SmartNotes/SmartNotes.xcodeproj</string>
+	<string>/Volumes/Data/Design/Programming/XCode Projects/Objective-C/SmartNotes/SmartNotes.xcodeproj</string>
 </dict>
 </plist>

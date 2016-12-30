@@ -7,7 +7,7 @@
 //
 
 #import "SmartNote.h"
-
+#import "Constants.h"
 static NSString* const blockDelimiter = @"\n<blockdelimiter>\n";
 @implementation SmartNote{
     NSString* _noteData;
@@ -20,7 +20,7 @@ static NSString* const blockDelimiter = @"\n<blockdelimiter>\n";
 - (instancetype)init{
     self = [super init];
     _noteType = TRANSIENT;
-    _noteData = @"";
+    _noteData = [[DELIMITER_COPYSTART stringByAppendingString:@"\n"]stringByAppendingString: DELIMITER_COPYEND];
     _noteTitle = @"";
     _noteDetail = @"";
     return self;

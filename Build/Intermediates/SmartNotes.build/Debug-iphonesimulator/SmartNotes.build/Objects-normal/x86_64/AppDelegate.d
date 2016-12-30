@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/AppDelegate.m \
-  /Users/Conrad/Personal/Design/XCode\ Projects/SmartNotes/SmartNotes/AppDelegate.h
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/AppDelegate.m \
+  /Volumes/Data/Design/Programming/XCode\ Projects/Objective-C/SmartNotes/SmartNotes/AppDelegate.h

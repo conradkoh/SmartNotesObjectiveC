@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "SmartNotesModel.h"
+#import "Typedefinitions.h"
 
 @interface FirstViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UITextView *TextView_Display_Data;
 @property (weak, nonatomic) IBOutlet UITextView *TextView_Display_SearchResults;
 @property (weak, nonatomic) IBOutlet UITextField *TextField_Input;
 @property (weak, nonatomic) IBOutlet UIView *UIView_TextView_Container;
 @property (weak, nonatomic) IBOutlet UITableView *TableView_noteView;
+@property (weak, nonatomic) IBOutlet UIImageView *ImageView_TopBar;
 - (IBAction)TextField_Input_Editing_Did_Begin:(id)sender;
 - (IBAction)TextField_Input_Editing_Did_End:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *Constraint_Bottom_Distance;
