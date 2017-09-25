@@ -89,7 +89,7 @@
     });
 }
 - (UIStatusBarStyle) preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 -(void) textFieldDidChange: (UIControlEvents*) event{

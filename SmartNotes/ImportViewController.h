@@ -11,6 +11,7 @@
 #import "Algorithms.h"
 @interface ImportViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *TextView_Rules;
+@property (weak, nonatomic) IBOutlet UIImageView *ImageView_TopBar;
 
 
 @end

@@ -22,6 +22,7 @@
 @synthesize Button_Save;
 @synthesize Button_Persist;
 @synthesize TextView_Main;
+@synthesize ImageView_TopBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,12 +31,11 @@
     TextView_Main.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    //Tap to dismiss Keyboard
+    [ImageView_TopBar setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [ImageView_TopBar addGestureRecognizer:tap];
     
-    //Tap to hide keyboard
-    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tapGesture];
-    //tapGesture.delegate = self;
-    // Do any additional setup after loading the view.
     
     //Check what type of note this is
     if([TextView_Main.text rangeOfString:PERSISTENTNOTESPECIFIER].location == 0){

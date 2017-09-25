@@ -17,11 +17,16 @@
 
 @implementation ImportViewController
 @synthesize TextView_Rules;
+@synthesize ImageView_TopBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     model = [[SmartNotesModel alloc]init];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //Tap to dismiss Keyboard
+    [ImageView_TopBar setUserInteractionEnabled:YES];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [ImageView_TopBar addGestureRecognizer:tap];
 }
 - (IBAction)Button_Import_Touch_Up_Inside:(id)sender {
     NSString* data = _UITextView_ImportExportData.text;
@@ -40,8 +45,13 @@
     [model DeleteAllNotes];
 }
 
+-(void) dismissKeyboard{
+    //[TextView_Main resignFirstResponder];
+    [self.view endEditing:YES];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 - (void)didReceiveMemoryWarning {
