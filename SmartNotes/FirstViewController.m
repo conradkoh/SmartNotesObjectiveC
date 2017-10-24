@@ -190,11 +190,6 @@
     UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] floatValue];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.view removeConstraint:Constraint_Bottom_Distance];
-    [self.view removeConstraint:Constraint_TextView_Display_Data_Bottom];
-    [self.view removeConstraint:Constraint_Button_Hide_Keyboard_Bottom];
-    [self.view removeConstraint:Constraint_TextField_Input_Right];
-    [self.view removeConstraint:Constraint_UIImageView_TextField_Input_Background_Bottom];
     [TextField_Input setFrame:textfieldFrame];
     [TextView_Display_Data setFrame:textViewFrame];
     [Button_Hide_Keyboard setFrame: buttonHideKeyboardFrame];
@@ -249,11 +244,6 @@
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];
-    [self.view removeConstraint:Constraint_Bottom_Distance];
-    [self.view removeConstraint:Constraint_TextView_Display_Data_Bottom];
-    [self.view removeConstraint:Constraint_Button_Hide_Keyboard_Bottom];
-    [self.view removeConstraint:Constraint_TextField_Input_Right];
-    [self.view removeConstraint:Constraint_UIImageView_TextField_Input_Background_Bottom];
     
     [Button_Hide_Keyboard setHidden:YES];
     [TextField_Input setFrame:textfieldFrame];

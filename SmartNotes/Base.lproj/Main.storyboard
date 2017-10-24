@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,10 +63,9 @@
                                 </variation>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LkG-Tf-TFI">
-                                <rect key="frame" x="1" y="580" width="373" height="30"/>
+                                <rect key="frame" x="0.0" y="580" width="375" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0sp-bw-iqg"/>
-                                    <constraint firstAttribute="height" constant="30" id="Ajy-A5-5Ax"/>
                                     <constraint firstAttribute="height" constant="30" id="OZL-bd-0KV"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="yOd-nt-EJh"/>
                                 </constraints>
@@ -140,6 +139,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LkG-Tf-TFI" firstAttribute="top" secondItem="13K-JH-caD" secondAttribute="bottom" id="1EY-qw-MMF"/>
                             <constraint firstAttribute="bottomMargin" secondItem="S7q-sq-91K" secondAttribute="bottom" constant="49" id="1jx-Sm-NEY"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="d3s-Xt-wJr" secondAttribute="bottom" constant="9" id="2Wd-9I-Hew"/>
                             <constraint firstItem="Zpx-n7-gUf" firstAttribute="top" secondItem="Og7-iH-w21" secondAttribute="bottom" id="5Ki-v8-ihI"/>
@@ -153,16 +153,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Zpx-n7-gUf" secondAttribute="trailing" constant="-20" id="HSR-PK-i6C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LkG-Tf-TFI" secondAttribute="trailing" constant="5" id="J0l-J4-foy"/>
                             <constraint firstItem="jU8-D1-cOd" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="15" id="LOe-IJ-MAg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LkG-Tf-TFI" secondAttribute="trailing" constant="-15" id="N8T-HO-AJD"/>
+                            <constraint firstAttribute="trailing" secondItem="LkG-Tf-TFI" secondAttribute="trailing" id="NEN-Gi-0DH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="13K-JH-caD" secondAttribute="trailing" constant="-20" id="RxK-Pl-s1j"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="LkG-Tf-TFI" secondAttribute="bottom" constant="8" id="TXh-Gp-2vO"/>
+                            <constraint firstItem="LkG-Tf-TFI" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Ts6-0s-SYb"/>
                             <constraint firstItem="Og7-iH-w21" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="Wjx-EH-krs"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="LkG-Tf-TFI" secondAttribute="bottom" constant="8" id="Y7Q-Du-Ike"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="13K-JH-caD" secondAttribute="bottom" constant="38" id="eTo-qR-7FN"/>
                             <constraint firstItem="71C-2i-a25" firstAttribute="leading" secondItem="jU8-D1-cOd" secondAttribute="trailing" constant="8" id="ejm-9z-M63"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d3s-Xt-wJr" secondAttribute="trailing" constant="-20" id="gJe-oM-U54"/>
                             <constraint firstItem="Og7-iH-w21" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="kdP-46-8fD"/>
                             <constraint firstItem="jU8-D1-cOd" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="mTh-W8-yqO"/>
-                            <constraint firstItem="LkG-Tf-TFI" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-15" id="scn-R1-N8b"/>
                             <constraint firstItem="Zpx-n7-gUf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="u35-uP-KWe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S7q-sq-91K" secondAttribute="trailing" constant="-20" id="vu8-1K-u79"/>
                             <constraint firstItem="71C-2i-a25" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="15" id="w6b-by-bDf"/>
@@ -185,9 +185,7 @@
                     <connections>
                         <outlet property="Button_Hide_Keyboard" destination="d3s-Xt-wJr" id="v42-XO-nFX"/>
                         <outlet property="Button_Toggle_Persist" destination="71C-2i-a25" id="JWp-mG-d02"/>
-                        <outlet property="Constraint_Bottom_Distance" destination="TXh-Gp-2vO" id="JbD-sB-BT3"/>
                         <outlet property="Constraint_Button_Hide_Keyboard_Bottom" destination="2Wd-9I-Hew" id="Bfb-Yo-JfH"/>
-                        <outlet property="Constraint_TextField_Input_Right" destination="N8T-HO-AJD" id="jjI-OL-XZU"/>
                         <outlet property="Constraint_TextView_Display_Data_Bottom" destination="eTo-qR-7FN" id="3pX-8M-6Zu"/>
                         <outlet property="Constraint_UIImageView_TextField_Input_Background_Bottom" destination="1jx-Sm-NEY" id="MSR-aH-DTg"/>
                         <outlet property="ImageView_TopBar" destination="Og7-iH-w21" id="fwn-k0-Y5k"/>
@@ -199,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="BBq-3C-nuQ">

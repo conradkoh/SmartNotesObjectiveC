@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartNotes/FirstViewController.m"
-            timestampString = "528050345.504025"
+            timestampString = "530549129.299404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
